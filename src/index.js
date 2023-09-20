@@ -1,26 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import ToDoList from "./components/ToDoList"
 
-const ToDoList = () => {
-  return <ul>
-      <li>this is how we do</li>
-    </ul>
+const App = () => {
+  const todoData = [
+    {label: 'coffee', important: true},
+    {label: 'ice-cream', important: false},
+  ]
 
+  return <ToDoList todos={todoData}/>
 }
 
-const el = (
-  <div>
-    <h1>ToDo list</h1>
-    <input type="text" placeholder="search"/>
-    <ul>
-      <li>learn React</li>
-      <li>learn TS</li>
-      <ToDoList/>
-    </ul>
-  </div>
-)
 
-console.log(el)
-console.log(ToDoList())
-
-ReactDOM.render(el,document.getElementById('root'))
+ReactDOM.render(<App/>,document.getElementById('root'))
