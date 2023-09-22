@@ -1,10 +1,22 @@
-import React from "react";
-const ToDoListItem = ({label, important = false}) => {
-    const style = {
-        color: important ? 'red' : 'black'
+import React, {Component} from "react";
+
+export default class ToDoListItem extends Component {
+
+    constructor() {
+        super();
+
+        this.onLabelClick = () => {
+            console.log(this.props.label)
+        }
     }
 
-    return <li className="list-group-item" style={style}>{label}</li>
-}
+    render () {
+        const {label, important} = this.props
 
-export default ToDoListItem
+        const style = {
+            color: important ? 'red' : 'black'
+        }
+
+        return <li className="list-group-item" style={style} onClick={this.onLabelClick}>{label}</li>
+    }
+}
