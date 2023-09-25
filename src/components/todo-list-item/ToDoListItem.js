@@ -2,16 +2,18 @@ import React, {Component} from "react";
 
 export default class ToDoListItem extends Component {
 
-    constructor() {
-        super();
+    state = {
+        done: false
+    }
 
-        this.onLabelClick = () => {
-            console.log(this.props.label)
-        }
+    onLabelClick = () => {
+        console.log(this.props.label)
     }
 
     render () {
         const {label, important} = this.props
+        const {done} = this.state
+        let classNames = 'todo-list-i'
 
         const style = {
             color: important ? 'red' : 'black'
